@@ -1,5 +1,6 @@
 # This file will contain the neural network structure
 import numpy as np
+import copy
 
 
 class Brain:
@@ -30,7 +31,17 @@ class Brain:
 
     def suggest(self, state):
         self.evaluate(state.flatten())
-        return self.N3.argmax()
+        options = copy.deepcopy(self.N3)
+        moved = False
+        while moved == False:
+            move = options.argmax()
+            col = state[:,move]
+            if 0 in col:
+                moved = True
+            else:
+                options[move] = 0.0
+                print(move)
+        return move
 
     def activation(self, A):
         return 1.0/(1.0 + np.exp(-A))
