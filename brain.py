@@ -5,7 +5,13 @@ import copy
 
 class Brain:
 
-    def __init__(self):
+    def __init__(self, ID=0):
+
+        # identifier
+        self.ID = ID
+
+        # initalise score
+        self.score = 0
 
         # initalise nodes to zero
         self.N0 = np.zeros(49)
@@ -40,7 +46,6 @@ class Brain:
                 moved = True
             else:
                 options[move] = 0.0
-                print(move)
         return move
 
     def activation(self, A):
