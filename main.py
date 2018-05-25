@@ -1,15 +1,19 @@
 # Main run file
 import os
 import time
+import pickle
 import numpy as np
 import game
 import brain
+import sys
 
 # create new game
 g = game.Game()
 
 # load in opponent
-b = brain.Brain()
+id = sys.argv[1]
+
+b = pickle.load(open('{}'.format(id),'rb'))
 
 # main game loop
 while(g.check() == 0):
@@ -25,7 +29,7 @@ while(g.check() == 0):
     # player O makes move (brain)
     elif g.turn == -1:
         move = b.suggest(g.state)
-        time.sleep(2)
+        #time.sleep(2)
     g.move(move)
 
 # print final game state and game result

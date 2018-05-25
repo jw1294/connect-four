@@ -12,7 +12,7 @@ import numpy as np
 #             -1 -> O
 #
 # move(y)      True -> Legal and changed
-#             False -> Illegal and unchanged
+#              False -> Illegal and unchanged
 #
 # check()      0 -> None
 #              1 -> X

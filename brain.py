@@ -36,7 +36,7 @@ class Brain:
         self.N3 = self.activation(np.dot(self.W3, self.N2) + self.B3)
 
     def suggest(self, state):
-        self.evaluate(state.flatten())
+        self.evaluate(state.flatten()*10)
         options = copy.deepcopy(self.N3)
         moved = False
         while moved == False:
